@@ -1,0 +1,99 @@
+<html>
+    
+    <head>
+        <title>Welcome To Registration Of GamePlay</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <script type="text/javascript">
+            function validate()
+            {
+                var mail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+                var mob=/^[7-9][0-9]{9}$/
+            
+                var pass=document.form.password.value;
+                var pass2=document.form.password2.value;
+                if(mail.test(form.email.value) && mob.test(form.phno.value))
+                {
+                   if(pass=="" && pass2=="")
+                   {
+                       alert("Password should not be empty");
+                       return false;
+                   }else if(pass=="")
+                   {
+                        alert("Please enter Password");
+                        return false;
+                   }else if(pass2=="")
+                   {
+                    alert("Please Re-enter correct Password");
+                    return false;
+                   }else if(pass!=pass2)
+                   {
+                       alert("Password is not same");
+                       return false
+                   }
+                   else
+                   {
+                       return true;
+                   }
+                    
+                }
+                else
+                {
+                   alert("Please Check Email or Phone Number");
+                    return false;
+                }
+            }
+            function validateRePass()
+            {
+
+                var pass=document.form.password.value;
+                var pass2=document.form.password2.value;
+
+                if(pass!=pass2)
+                {
+                    document.getElementById("pass2_err").innerHTML="Password does not match !";
+                }
+                else
+                {
+                    document.getElementById("pass2_err").innerHTML="";
+                }
+            }
+
+        </script>
+       
+    </head>
+
+    <body>
+
+        <form method="POST" name="form" action="/blank.html" onsubmit="return validate()">
+        
+            <div id="login-box">
+                <div class="left">
+                <h1>Sign up</h1>
+                
+                <input type="text" name="username" placeholder="Username" required />
+                <input type="text" name="email" placeholder="E-mail" required />
+                <input type="text" name="phno" placeholder="Phone Number" required />
+                <input type="password" name="password" placeholder="Password" required />
+                <input type="password" name="password2" placeholder="Retype password" onblur="validateRePass()" required />
+                <span id="pass2_err" style="color: red;"></span>
+
+                <input type="submit" name="SignUP" value="Sign Up">
+                
+                </div>
+              
+                <div class="right">
+                <span class="loginwith">Sign in with<br />social network</span>
+                
+                
+                <button type="button" class="social-signin facebook">Log in with facebook</button>
+                <button type="button" class="social-signin twitter">Log in with Twitter</button>
+                <button type="button" class="social-signin google">Log in with Google+</button>
+                </div>
+                <div class="or">OR</div>
+            </div>
+        </form>
+    </body>
+
+
+</html>
